@@ -1,0 +1,105 @@
+/* ============================= */
+/*   PS5 DualSense Transparent Overlay for GamepadViewer */
+/* ============================= */
+
+body {
+    background: transparent !important;
+    overflow: hidden !important;
+}
+
+/* Hide original black */
+.wrapper,
+.controller,
+.gamepad {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* PS5 White Shell */
+.controller::after,
+.gamepad::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        145deg,
+        #ffffff 0%,
+        #f2f4f8 40%,
+        #e4e8ee 100%
+    );
+    border-radius: 60px;
+    z-index: -1;
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25),
+        inset 0 -10px 30px rgba(0,0,0,0.15);
+}
+
+/* Center black touchpad */
+.touchpad,
+.center,
+.middle {
+    background: #111 !important;
+    border-radius: 25px !important;
+    box-shadow:
+        inset 0 5px 15px rgba(0,0,0,0.7);
+}
+
+/* Blue LED on top */
+.controller::before,
+.gamepad::before {
+    content: "";
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 6px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00aaff,
+        #00e0ff,
+        #00aaff,
+        transparent
+    );
+    border-radius: 20px;
+    box-shadow: 0 0 25px #00ccff;
+}
+
+/* Buttons */
+.button,
+.btn,
+.face-button {
+    background: #f0f3f7 !important;
+    border-radius: 50% !important;
+    box-shadow:
+        inset 0 4px 8px rgba(0,0,0,0.15),
+        0 4px 10px rgba(0,0,0,0.15);
+}
+
+.button.pressed,
+.btn.pressed,
+.face-button.pressed {
+    background: #00aaff !important;
+    box-shadow: 0 0 15px #00ccff;
+}
+
+/* Sticks */
+.stick,
+.analog,
+.thumbstick {
+    background: radial-gradient(circle at 40% 40%, #333, #111);
+    border-radius: 50%;
+    box-shadow:
+        inset 0 6px 12px rgba(0,0,0,0.8),
+        0 3px 6px rgba(0,0,0,0.4);
+}
+
+/* D-Pad */
+.dpad,
+.directional {
+    background: #e9edf3 !important;
+    box-shadow:
+        inset 0 3px 6px rgba(0,0,0,0.2);
+}
